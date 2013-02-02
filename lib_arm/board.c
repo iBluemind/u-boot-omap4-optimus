@@ -771,19 +771,17 @@ void start_armboot (void)
 	}
 #endif /* CONFIG_LGE_NVDATA */
 
-	extern int	recoverykey(void); 
-	int i;
-	int selected_menu = 0;
 #define MENU_NORMAL	0
 #define MENU_FASTBOOT	1
 #define MENU_RECOVERY	2
 #define MENU_DOWNLOAD	3
-
-//	if (recoverykey()) {
-//		extern int do_keyscan(int);
 #define KEY_VOLUP	1
 #define KEY_VOLDOWN	2
-		selected_menu = MENU_NORMAL; /* default */
+
+//	extern int recoverykey(void); 
+//	if (recoverykey()) {
+		extern int do_keyscan(int);
+		int selected_menu = MENU_NORMAL;
 
 		/* XXX */
 		__raw_writel(2, PRM_RSTST);
@@ -794,14 +792,15 @@ void start_armboot (void)
 			" - Recovery    \n",
 			NULL,
 		};
-		int item;
+		
 		int bg = 0xff000000;
 		int fg = 0xff33ccff;
 		int bar = 0xaa33ccff;
 
-		item = selected_menu;
+		int item = selected_menu;
 		default_logo();
 
+		int i;
 		for (i = 0; i < 300; i++) {
 			int j;
 			int key;
