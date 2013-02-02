@@ -779,11 +779,11 @@ void start_armboot (void)
 #define MENU_RECOVERY	2
 #define MENU_DOWNLOAD	3
 
-	if (recoverykey()) {
-		extern int do_keyscan(int);
+//	if (recoverykey()) {
+//		extern int do_keyscan(int);
 #define KEY_VOLUP	1
 #define KEY_VOLDOWN	2
-		selected_menu = MENU_RECOVERY; /* default */
+		selected_menu = MENU_NORMAL; /* default */
 
 		/* XXX */
 		__raw_writel(2, PRM_RSTST);
@@ -847,7 +847,7 @@ void start_armboot (void)
 
 		selected_menu = item;
 #endif
-	}
+//	}
 
 	if (selected_menu == MENU_RECOVERY || isFactoryReset || isHardReset) {
 		printf("\n### ==============fota mode ==============###\n");
