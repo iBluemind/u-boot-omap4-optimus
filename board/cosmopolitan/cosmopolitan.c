@@ -148,7 +148,7 @@ int	recoverykey(void)
 {
 	int	key	= do_keyscan(0);
 
-	return	(key == KEY_VOLUMEDOWN);
+	return	(key == (KEY_VOLUMEDOWN | KEY_3DHOT));
 }
 int isVolumeDownKeyPressed(void){
 	int key = do_keyscan(1);
