@@ -1404,7 +1404,7 @@ int do_booti (cmd_tbl_t *cmdtp, int flag, int argc, char *argv[])
 
 				len += sizeof(image_header_t) + sizeof(ulong) * i;
 
-				sprintf(tmp, "booti: mmc_read 0x%x\n", len);
+				//sprintf(tmp, "booti: mmc_read 0x%x\n", len);
 				fbcon_puts(tmp);
 			}
 			printf("booti: try to read mmc and boot using bootm\n");
