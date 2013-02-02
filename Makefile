@@ -62,7 +62,7 @@ CROSS_COMPILE = powerpc-linux-
 endif
 ifeq ($(ARCH),arm)
 #CROSS_COMPILE = arm-linux-
-CROSS_COMPILE = arm-none-linux-gnueabi-
+CROSS_COMPILE = $(HOME)/CodeSourcery/Sourcery_G++_Lite/bin/arm-none-linux-gnueabi-
 endif
 ifeq ($(ARCH),i386)
 ifeq ($(HOSTARCH),i386)
@@ -2295,6 +2295,8 @@ clean:
 	rm -f board/trab/trab_fkt board/voiceblue/eeprom
 	rm -f board/integratorap/u-boot.lds board/integratorcp/u-boot.lds
 	rm -f include/bmp_logo.h
+	rm -f board/cosmopolitan/web_download.rle
+	rm -f board/cosmopolitan/lglogo.rle
 
 clobber:	clean
 	find . -type f \( -name .depend \
